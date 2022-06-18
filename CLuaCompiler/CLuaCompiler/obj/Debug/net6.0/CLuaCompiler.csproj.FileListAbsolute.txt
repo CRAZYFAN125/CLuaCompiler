@@ -10,3 +10,15 @@ C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompi
 C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\refint\CLuaCompiler.dll
 C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompiler.pdb
 C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\ref\CLuaCompiler.dll
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\bin\Debug\net6.0\CLuaCompiler.deps.json
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\bin\Debug\net6.0\CLuaCompiler.dll
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\bin\Debug\net6.0\CLuaCompiler.pdb
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompiler.csproj.AssemblyReference.cache
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompiler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompiler.AssemblyInfoInputs.cache
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompiler.AssemblyInfo.cs
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompiler.csproj.CoreCompileInputs.cache
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompiler.dll
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\refint\CLuaCompiler.dll
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\CLuaCompiler.pdb
+C:\Users\alans\Desktop\Alan\CLuaCompiler\CLuaCompiler\CLuaCompiler\obj\Debug\net6.0\ref\CLuaCompiler.dll

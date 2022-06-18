@@ -3,13 +3,7 @@
 
     internal class GetValues
     {
-        public class Value
-        {
-            public string key = string.Empty;
-            public string name = string.Empty;
-            public object value = string.Empty;
-        }
-
+        
 
 
         public static Dictionary<int, Value> GetValueFromInstruction(Dictionary<int, List<string>> instructions)
@@ -37,33 +31,9 @@
 #pragma warning disable CS8600 // Konwertowanie literału null lub możliwej wartości null na nienullowalny typ.
             object value = null;
 #pragma warning restore CS8600 // Konwertowanie literału null lub możliwej wartości null na nienullowalny typ.
-
             string[] strings = v.Split('=');
             if (strings.Length > 1)
             {
-                Dictionary<int, string> keyValuePairs = new();
-                foreach (char item in Datas1.indexes)
-                {
-                    string[] variable = strings[1].Split(item);
-                    if (variable.Length > 1)
-                    {
-                        switch (item)
-                        {
-                            case '*':
-
-                                break;
-                            case '-':
-                                break;
-                            case '+':
-                                break;
-                            case '/':
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-
                 Datas1.CoreKey coreKey = new Datas1.CoreKey();
                 List<string> avaibleKeys = Functions.Interpreters.GetKeys();
 
@@ -75,25 +45,34 @@
                     }
                 }
 
-                switch (coreKey)
+                object keyValuePairs = Calculate(strings[1], coreKey);
+
+
+
+
+
+                if (keyValuePairs == null)
                 {
-                    case Datas1.CoreKey.ints:
-                        value = int.Parse(strings[2]);
-                        break;
-                    case Datas1.CoreKey.strings:
-                        value = strings[2];
-                        break;
-                    case Datas1.CoreKey.bools:
-                        //ToDo
-                        break;
-                    case Datas1.CoreKey.functions:
-                        //ToDo
-                        break;
-                    case Datas1.CoreKey.floats:
-                        value = float.Parse(strings[2]);
-                        break;
-                    default:
-                        break;
+                    switch (coreKey)
+                    {
+                        case Datas1.CoreKey.ints:
+                            value = int.Parse(strings[1]);
+                            break;
+                        case Datas1.CoreKey.strings:
+                            value = strings[1];
+                            break;
+                        case Datas1.CoreKey.bools:
+                            //ToDo
+                            break;
+                        case Datas1.CoreKey.functions:
+                            //ToDo
+                            break;
+                        case Datas1.CoreKey.floats:
+                            value = float.Parse(strings[1]);
+                            break;
+                        default:
+                            break;
+                    }
                 }
 
 
@@ -103,6 +82,275 @@
 #pragma warning disable CS8603 // Możliwe zwrócenie odwołania o wartości null.
             return value;
 #pragma warning restore CS8603 // Możliwe zwrócenie odwołania o wartości null.
+        }
+
+        /// <summary>
+        /// Get, convert and calculate all numbers in string
+        /// </summary>
+        /// <param name="v">String with data to convert</param>
+        /// <param name="key">Key used by line when reads</param>
+        /// <returns>Specific data</returns>
+        private static object Calculate(string v, Datas1.CoreKey key)
+        {
+#pragma warning disable CS8600 // Konwertowanie literału null lub możliwej wartości null na nienullowalny typ.
+            object data = null;
+#pragma warning restore CS8600 // Konwertowanie literału null lub możliwej wartości null na nienullowalny typ.
+
+
+            char[] chars = v.ToCharArray();
+            int fromLastSymbol = 0;
+
+            if (key == Datas1.CoreKey.floats)
+            {
+                float lastNumbers = -354.4035093625f;
+                char lastSymbol =' ';
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    string xx = string.Empty;
+                    for (int b = 0; b < fromLastSymbol; b++)
+                    {
+                        xx += chars[b];
+                    }
+                    switch (chars[i])
+                    {
+                        case '*':
+                            if (lastNumbers != -354.4035093625f)
+                            {
+                                switch (lastSymbol)
+                                {
+                                    case '*':
+                                        lastNumbers = lastNumbers * float.Parse(xx);
+                                        break;
+                                    case '/':
+                                        lastNumbers = lastNumbers / float.Parse(xx);
+                                        break;
+                                    case '+':
+                                        lastNumbers = lastNumbers + float.Parse(xx);
+                                        break;
+                                    case '-':
+                                        lastNumbers = lastNumbers - float.Parse(xx);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            lastNumbers = float.Parse(xx);
+                            lastSymbol = '*';
+                            break;
+                        case '/':
+                            if (lastNumbers != -354.4035093625f)
+                            {
+                                switch (lastSymbol)
+                                {
+                                    case '*':
+                                        lastNumbers = lastNumbers * float.Parse(xx);
+                                        break;
+                                    case '/':
+                                        lastNumbers = lastNumbers / float.Parse(xx);
+                                        break;
+                                    case '+':
+                                        lastNumbers = lastNumbers + float.Parse(xx);
+                                        break;
+                                    case '-':
+                                        lastNumbers = lastNumbers - float.Parse(xx);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            lastNumbers = float.Parse(xx);
+                            lastSymbol = '/';
+                            break;
+                        case '+':
+                            if (lastNumbers != -354.4035093625f)
+                            {
+                                switch (lastSymbol)
+                                {
+                                    case '*':
+                                        lastNumbers = lastNumbers * float.Parse(xx);
+                                        break;
+                                    case '/':
+                                        lastNumbers = lastNumbers / float.Parse(xx);
+                                        break;
+                                    case '+':
+                                        lastNumbers = lastNumbers + float.Parse(xx);
+                                        break;
+                                    case '-':
+                                        lastNumbers = lastNumbers - float.Parse(xx);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            lastNumbers = float.Parse(xx);
+                            lastSymbol = '+';
+                            break;
+                        case '-':
+                            if (lastNumbers != -354.4035093625f)
+                            {
+                                switch (lastSymbol)
+                                {
+                                    case '*':
+                                        lastNumbers = lastNumbers * float.Parse(xx);
+                                        break;
+                                    case '/':
+                                        lastNumbers = lastNumbers / float.Parse(xx);
+                                        break;
+                                    case '+':
+                                        lastNumbers = lastNumbers + float.Parse(xx);
+                                        break;
+                                    case '-':
+                                        lastNumbers = lastNumbers - float.Parse(xx);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            lastNumbers = float.Parse(xx);
+                            lastSymbol = '-';
+                            break;
+                        default:
+                            break;
+                    }
+                    fromLastSymbol++;
+
+                }
+                if (lastNumbers!= -354.4035093625f)
+                {
+                    data = lastNumbers;
+                }
+            }
+            else if (key == Datas1.CoreKey.ints)
+            {
+                float lastNumbers = -354.4035093625f;
+                char lastSymbol = ' ';
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    string xx = string.Empty;
+                    for (int b = 0; b < fromLastSymbol; b++)
+                    {
+                        xx += chars[b];
+                    }
+                    switch (chars[i])
+                    {
+                        case '*':
+                            if (lastNumbers != -354.4035093625f)
+                            {
+                                switch (lastSymbol)
+                                {
+                                    case '*':
+                                        lastNumbers = lastNumbers * float.Parse(xx);
+                                        break;
+                                    case '/':
+                                        lastNumbers = lastNumbers / float.Parse(xx);
+                                        break;
+                                    case '+':
+                                        lastNumbers = lastNumbers + float.Parse(xx);
+                                        break;
+                                    case '-':
+                                        lastNumbers = lastNumbers - float.Parse(xx);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            lastNumbers = float.Parse(xx);
+                            lastSymbol = '*';
+                            break;
+                        case '/':
+                            if (lastNumbers != -354.4035093625f)
+                            {
+                                switch (lastSymbol)
+                                {
+                                    case '*':
+                                        lastNumbers = lastNumbers * float.Parse(xx);
+                                        break;
+                                    case '/':
+                                        lastNumbers = lastNumbers / float.Parse(xx);
+                                        break;
+                                    case '+':
+                                        lastNumbers = lastNumbers + float.Parse(xx);
+                                        break;
+                                    case '-':
+                                        lastNumbers = lastNumbers - float.Parse(xx);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            lastNumbers = float.Parse(xx);
+                            lastSymbol = '/';
+                            break;
+                        case '+':
+                            if (lastNumbers != -354.4035093625f)
+                            {
+                                switch (lastSymbol)
+                                {
+                                    case '*':
+                                        lastNumbers = lastNumbers * float.Parse(xx);
+                                        break;
+                                    case '/':
+                                        lastNumbers = lastNumbers / float.Parse(xx);
+                                        break;
+                                    case '+':
+                                        lastNumbers = lastNumbers + float.Parse(xx);
+                                        break;
+                                    case '-':
+                                        lastNumbers = lastNumbers - float.Parse(xx);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            lastNumbers = float.Parse(xx);
+                            lastSymbol = '+';
+                            break;
+                        case '-':
+                            if (lastNumbers != -354.4035093625f)
+                            {
+                                switch (lastSymbol)
+                                {
+                                    case '*':
+                                        lastNumbers = lastNumbers * float.Parse(xx);
+                                        break;
+                                    case '/':
+                                        lastNumbers = lastNumbers / float.Parse(xx);
+                                        break;
+                                    case '+':
+                                        lastNumbers = lastNumbers + float.Parse(xx);
+                                        break;
+                                    case '-':
+                                        lastNumbers = lastNumbers - float.Parse(xx);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            lastNumbers = float.Parse(xx);
+                            lastSymbol = '-';
+                            break;
+                        default:
+                            break;
+                    }
+                    fromLastSymbol++;
+
+                }
+                if (lastNumbers != -354.4035093625f)
+                {
+                    data = int.Parse(MathF.Floor( lastNumbers).ToString());
+                }
+            }
+            else if (key == Datas1.CoreKey.strings)
+            {
+                string x = string.Empty;
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    x+=chars[i];
+                }
+                data = x;
+            }
+
+            return data;
         }
 
         private static string GetName(string x)

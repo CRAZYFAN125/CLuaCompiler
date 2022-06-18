@@ -8,6 +8,7 @@ namespace Crazy.CLuaCompiler.Cores
 {
     internal class Functions
     {
+        //List<string> customFunctions = new List<string>();
         public static class Interpreters
         {
             static List<string> KeyValues = new List< string>();

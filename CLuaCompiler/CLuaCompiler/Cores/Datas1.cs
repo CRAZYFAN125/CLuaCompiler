@@ -19,4 +19,10 @@ namespace Crazy.CLuaCompiler.Cores
         public static char[] indexes = {  '*', '-', '+', '/','=' };
 
     }
+    public class Value
+    {
+        public string key = string.Empty;
+        public string name = string.Empty;
+        public object value = string.Empty;
+    }
 }
