@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler.csproj": {}
+    "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler.csproj": {
+    "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler.csproj",
+        "projectUniqueName": "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler.csproj",
         "projectName": "CLuaCompiler",
-        "projectPath": "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler.csproj",
+        "projectPath": "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler.csproj",
         "packagesPath": "C:\\Users\\alans\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\obj\\",
+        "outputPath": "C:\\Users\\alans\\Desktop\\Alan\\CLuaCompiler\\CLuaCompiler\\CLuaCompiler\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alans\\AppData\\Roaming\\NuGet\\NuGet.Config",

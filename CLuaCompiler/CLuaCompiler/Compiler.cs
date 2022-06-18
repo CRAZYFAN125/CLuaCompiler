@@ -1,4 +1,4 @@
-﻿
+﻿using Crazy.CLuaCompiler.Cores;
 
 namespace Crazy.CLuaCompiler
 {
@@ -6,8 +6,7 @@ namespace Crazy.CLuaCompiler
     {
         public void Compile(string DataFromFile)
         {
-            Dictionary<int,Dictionary<string,string>> Instructions = new Dictionary<int,Dictionary<string,string>>();
-            Functions.GetValuesFromString(DataFromFile, out Instructions);
+            GetValues.GetValueFromInstruction(Functions.GetNamesFromString(DataFromFile));
 
 
         }
